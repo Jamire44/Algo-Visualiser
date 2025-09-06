@@ -1,29 +1,31 @@
-export async function bubbleSort(array, setArray, setActive, delay = 200) {
-
-    // Copy of an array
+// bubbleSort.js
+export async function bubbleSort(array, setArray, setActive, setSorted, delay = 200) {
     let arr = [...array];
-
-    // Starts at 0, ends at the end
-    for (let i = 0; i < arr.length - 1; i++) {
-
-        // Starts at 0
-      for (let j = 0; j < arr.length - i - 1; j++) {
+    const n = arr.length;
+    let sortedIndices = [];
+  
+    for (let i = 0; i < n - 1; i++) {
+      for (let j = 0; j < n - i - 1; j++) {
+        // highlight two being compared
         setActive([j, j + 1]);
-
+  
         if (arr[j] > arr[j + 1]) {
-
           [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-
-          setArray([...arr]);  // re-renders the array
-
-          await sleep(delay);  // pause so we can see swap
+          setArray([...arr]);
         }
+  
+        await sleep(delay);
       }
+      // lock the last element in this pass
+      sortedIndices.unshift(n - 1 - i);
+      setSorted([...sortedIndices]);
     }
+  
+    // finally, lock the first element too
+    setSorted([...Array(n).keys()]);
     setActive([]);
   }
   
-  // Small helper
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }

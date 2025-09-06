@@ -7,6 +7,7 @@ export default function SortVisualizer() {
     Array.from({ length: 20 }, () => Math.floor(Math.random() * 40) + 5)
   );
   const [active, setActive] = useState([]);
+  const [sorted, setSorted] = useState([]);
   const [isSorting, setIsSorting] = useState(false);
   const speedRef = useRef(200);
 
@@ -18,12 +19,14 @@ export default function SortVisualizer() {
       [a[i], a[j]] = [a[j], a[i]];
     }
     setNumbers(a);
+    setSorted([]); // clear sorted highlights
+    setActive([]);
   }
 
   async function handleBubbleSort() {
     if (isSorting) return;
     setIsSorting(true);
-    await bubbleSort(numbers, setNumbers, setActive, speedRef.current);
+    await bubbleSort(numbers, setNumbers, setActive, setSorted, speedRef.current);
     setIsSorting(false);
   }
 
@@ -48,12 +51,12 @@ export default function SortVisualizer() {
             max="800"
             defaultValue={200}
             onChange={(e) => (speedRef.current = Number(e.target.value))}
-            style={{ marginLeft: 8 }}
+            style={{ marginLeft: 8, verticalAlign: "middle" }}
           />
         </label>
       </div>
 
-      <BarChart numbers={numbers} active={active} />
+      <BarChart numbers={numbers} active={active} sorted={sorted} />
     </div>
   );
 }
