@@ -1,13 +1,13 @@
 import { useState, useRef } from "react";
 import BarChart from "./BarChart";
-import { bubbleSort } from "../algorithms/bubbleSort";
 
-export default function SortVisualizer() {
+export default function SortVisualizer({ algoName, sortFunction, mode }) {
   const [numbers, setNumbers] = useState(() =>
     Array.from({ length: 20 }, () => Math.floor(Math.random() * 40) + 5)
   );
   const [active, setActive] = useState([]);
   const [sorted, setSorted] = useState([]);
+  const [pivot, setPivot] = useState(null);
   const [isSorting, setIsSorting] = useState(false);
   const speedRef = useRef(200);
 
@@ -19,28 +19,27 @@ export default function SortVisualizer() {
       [a[i], a[j]] = [a[j], a[i]];
     }
     setNumbers(a);
-    setSorted([]); // clear sorted highlights
+    setSorted([]);
     setActive([]);
+    setPivot(null);
   }
 
-  async function handleBubbleSort() {
+  async function runSort() {
     if (isSorting) return;
     setIsSorting(true);
-    await bubbleSort(numbers, setNumbers, setActive, setSorted, speedRef.current);
+    await sortFunction(numbers, setNumbers, setActive, setSorted, setPivot, speedRef.current);
     setIsSorting(false);
   }
 
   return (
     <div style={{ padding: 20, fontFamily: "system-ui, sans-serif" }}>
-      <h1 style={{ marginBottom: 12 }}>Algorithm Visualiser</h1>
-
       <div style={{ marginBottom: 16 }}>
         <button onClick={shuffle} disabled={isSorting} style={{ marginRight: 8 }}>
           Shuffle
         </button>
 
-        <button onClick={handleBubbleSort} disabled={isSorting}>
-          Bubble Sort
+        <button onClick={runSort} disabled={isSorting}>
+          Run {algoName}
         </button>
 
         <label style={{ marginLeft: 12 }}>
@@ -51,12 +50,12 @@ export default function SortVisualizer() {
             max="800"
             defaultValue={200}
             onChange={(e) => (speedRef.current = Number(e.target.value))}
-            style={{ marginLeft: 8, verticalAlign: "middle" }}
+            style={{ marginLeft: 8 }}
           />
         </label>
       </div>
 
-      <BarChart numbers={numbers} active={active} sorted={sorted} />
+      <BarChart numbers={numbers} active={active} sorted={sorted} pivot={pivot} mode={mode} />
     </div>
   );
 }
