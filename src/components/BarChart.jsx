@@ -16,7 +16,7 @@ export default function BarChart({ numbers }) {
             title={String(num)}
             style={{
               width: 40,
-              height: num * 30,
+              height: num * 15,
               background: "#7ec8ff",
               display: "flex",
               alignItems: "flex-end",

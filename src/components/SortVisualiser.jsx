@@ -3,10 +3,12 @@ import BarChart from "./BarChart";
 import { bubbleSort } from "../algorithms/bubbleSort";
 
 export default function SortVisualizer() {
-  const [numbers, setNumbers] = useState([5, 3, 8, 1, 2]);
+  const [numbers, setNumbers] = useState([5, 13, 7, 1, 14, 14, 3, 9, 13, 15, 4, 11,]);
   const [isSorting, setIsSorting] = useState(false);
   const speedRef = useRef(300);
 
+
+  // Fisher-Yates Shuffle
   function shuffle() {
     if (isSorting) return;
     const a = [...numbers];
