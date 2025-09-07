@@ -6,9 +6,10 @@ export default function BarChart({ numbers, active = [], sorted = [], pivot = nu
           alignItems: "flex-end",
           gap: 6,
           height: 220,
-          border: "1px solid #ddd",
+          // border: "1px solid #ddd",
           padding: 12,
           borderRadius: 8,
+          background: "white"
         }}
       >
         {numbers.map((num, i) => {

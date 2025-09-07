@@ -16,22 +16,10 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                 onClick={onShuffle} 
                 disabled={isSorting} 
                 style={{
-                    padding: "8px 14px",
-                    borderRadius: 6,
-                    border: "none",
-                    background: "#6c757d",
-                    color: "white",
-                    cursor: "pointer",
-                    }}>
-                Shuffle
-            </button>
-
-            <button
-                style={{
-                    background: "#007aff",          // iOS blue
+                    background: "rgb(57, 57, 57)",          // iOS blue
                     color: "white",
                     border: "none",
-                    padding: "10px 18px",
+                    padding: "10px 30px",
                     borderRadius: "12px",
                     fontSize: "0.95rem",
                     fontWeight: "500",
@@ -39,26 +27,74 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                     transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#005ecb"; // darker blue on hover
+                    e.currentTarget.style.background = "black"; // darker blue on hover
                 }}
                 onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#007aff";
+                    e.currentTarget.style.background = "rgb(57, 57, 57)";
+                }}>
+                Shuffle
+            </button>            
+
+            <button
+                onClick={onRun}
+                disabled={isSorting}
+                style={{
+                    background: "rgb(57, 57, 57)",          // iOS blue
+                    color: "white",
+                    border: "none",
+                    padding: "10px 30px",
+                    borderRadius: "12px",
+                    fontSize: "0.95rem",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "black"; // darker blue on hover
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgb(57, 57, 57)";
                 }}
                 >
                 Run
             </button>
 
-            <label style={{ marginLeft: "auto", fontSize: 14 }}>
+            <label disabled={isSorting} style={{ marginLeft: "auto", fontSize: 15 }}>
                 Speed:
                 <input
                 type="range"
                 min="50"
-                max="800"
+                max="600"
                 defaultValue={200}
                 onChange={(e) => onSpeedChange(Number(e.target.value))}
-                style={{ marginLeft: 8 }}
+                style={{ marginLeft: 5 }}
                 />
             </label>
+
+            <Link to="/">
+                <button
+                    style={{
+                        background: "rgb(57, 57, 57)",          // iOS blue
+                        color: "white",
+                        border: "none",
+                        padding: "10px 30px",
+                        borderRadius: "12px",
+                        fontSize: "0.95rem",
+                        fontWeight: "500",
+                        cursor: "pointer",
+                        transition: "all 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "black"; // darker blue on hover
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "rgb(57, 57, 57)";
+                    }}
+
+                >
+                Home
+                </button>
+            </Link>
         </div>
     )
 }

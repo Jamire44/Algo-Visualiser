@@ -37,13 +37,14 @@ export default function SortVisualizer({ algoName, sortFunction, mode }) {
   }
 
   return (
-    <div style={{ padding: 30,
+    <div style={{ 
+    padding: 30,
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "40px 20px",
-    background: "#f9fafc",
+    padding: "10px 0",
+    background: "white",
     fontFamily: "system-ui, sans-serif",
     }}>
       <Controls

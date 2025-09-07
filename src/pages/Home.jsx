@@ -28,29 +28,29 @@ export default function Home() {
         padding: 40,
       }}
     >
+          {/* Title */}
+          <h1
+            style={{
+              color: "white",
+              fontSize: "3rem",
+              fontWeight: "600",
+              marginBottom: 5,
+              textAlign: "center",
+              textShadow: "0 0 20px rgba(255,255,255,0.2)",
+            }}
+          >
+            Algorithm Visualiser
+          </h1>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          marginBottom: 60,
+          marginBottom: 5,
         }}
       >
           <Logo style={{ width: 300, height: 300 }} />
     </div>
 
-      {/* Title */}
-      <h1
-        style={{
-          color: "white",
-          fontSize: "3rem",
-          fontWeight: "600",
-          marginBottom: 60,
-          textAlign: "center",
-          textShadow: "0 0 20px rgba(255,255,255,0.2)",
-        }}
-      >
-        Algorithm Visualiser
-      </h1>
 
       {/* Grid */}
       <div
