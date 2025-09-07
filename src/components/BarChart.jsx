@@ -17,7 +17,6 @@ export default function BarChart({ numbers, active = [], sorted = [], pivot = nu
           if (sorted.includes(i)) {
             color = "lightgreen"; // ✅ sorted always green
           } else {
-            // 🎨 Algorithm-specific color logic
             if (mode === "bubble") {
               if (active[0] === i) color = "tomato"; // comparing first
               else if (active[1] === i) color = "gold"; // comparing second
@@ -46,9 +45,10 @@ export default function BarChart({ numbers, active = [], sorted = [], pivot = nu
                 display: "flex",
                 alignItems: "flex-end",
                 justifyContent: "center",
-                borderRadius: 4,
+                borderRadius: "6px 6px 0 0",
                 fontSize: 10,
-                transition: "height 0.25s, background 0.15s",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                transition: "height 0.3s, background 0.3s",
               }}
             >
               {num}

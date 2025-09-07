@@ -1,24 +1,45 @@
-import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
+import Controls from "../components/Controls";
 import SortVisualizer from "../components/SortVisualizer";
-import { bubbleSort } from "../algorithms/bubbleSort";
 
 export default function BubblePage() {
   return (
-    <div style={{ padding: 30 }}>
-      <h1 style={{ marginBottom: 20 }}>Bubble Sort</h1>
+    <Layout background="white">
+      {/* Title */}
+      <h1
+        style={{
+          fontSize: "2rem",
+          fontWeight: "600",
+          marginBottom: 20,
+          color: "#111",
+          textAlign: "center",
+        }}
+      >
+        Bubble Sort
+      </h1>
 
-      <SortVisualizer
-        algoName="Bubble Sort"
-        sortFunction={bubbleSort}
-        mode="bubble"
-      />
-
-      {/* ✅ Home button */}
-      <div style={{ marginTop: 20 }}>
-        <Link to="/">
-          <button style={{ padding: "8px 14px" }}>🏠 Back to Home</button>
-        </Link>
+      {/* Visualizer at the top */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: 30,
+        }}
+      >
+        <SortVisualizer algorithm="bubble" />
       </div>
-    </div>
+
+      {/* Controls directly under */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 20, // spacing between buttons
+          marginBottom: 40,
+        }}
+      >
+        <Controls />
+      </div>
+    </Layout>
   );
 }

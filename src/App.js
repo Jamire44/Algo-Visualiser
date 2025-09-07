@@ -4,10 +4,13 @@ import BubblePage from "./pages/BubblePage";
 import InsertionPage from "./pages/InsertionPage";
 import SelectionPage from "./pages/SelectionPage";
 import QuickPage from "./pages/QuickPage";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bubble" element={<BubblePage />} />

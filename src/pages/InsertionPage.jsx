@@ -12,12 +12,6 @@ export default function InsertionPage() {
         sortFunction={insertionSort}
         mode="insertion"
       />
-
-      <div style={{ marginTop: 20 }}>
-        <Link to="/">
-          <button style={{ padding: "8px 14px" }}>🏠 Back to Home</button>
-        </Link>
-      </div>
     </div>
   );
 }

@@ -1,15 +1,20 @@
 import { useState, useRef } from "react";
 import BarChart from "./BarChart";
+import Controls from "./Controls";
 
 export default function SortVisualizer({ algoName, sortFunction, mode }) {
   const [numbers, setNumbers] = useState(() =>
-    Array.from({ length: 20 }, () => Math.floor(Math.random() * 40) + 5)
+    Array.from({ length: 15 }, () => Math.floor(Math.random() * 40) + 5)
   );
   const [active, setActive] = useState([]);
   const [sorted, setSorted] = useState([]);
   const [pivot, setPivot] = useState(null);
   const [isSorting, setIsSorting] = useState(false);
   const speedRef = useRef(200);
+
+  function handleSpeedChange(val) {
+    speedRef.current = val;
+  }  
 
   function shuffle() {
     if (isSorting) return;
@@ -32,28 +37,23 @@ export default function SortVisualizer({ algoName, sortFunction, mode }) {
   }
 
   return (
-    <div style={{ padding: 20, fontFamily: "system-ui, sans-serif" }}>
-      <div style={{ marginBottom: 16 }}>
-        <button onClick={shuffle} disabled={isSorting} style={{ marginRight: 8 }}>
-          Shuffle
-        </button>
+    <div style={{ padding: 30,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "40px 20px",
+    background: "#f9fafc",
+    fontFamily: "system-ui, sans-serif",
+    }}>
+      <Controls
+        onShuffle={shuffle}
+        onRun={runSort}
+        isSorting={isSorting}
+        algoName={algoName}
+        onSpeedChange={ (val) => (speedRef.current = val)}
+      />
 
-        <button onClick={runSort} disabled={isSorting}>
-          Run {algoName}
-        </button>
-
-        <label style={{ marginLeft: 12 }}>
-          Speed:
-          <input
-            type="range"
-            min="50"
-            max="800"
-            defaultValue={200}
-            onChange={(e) => (speedRef.current = Number(e.target.value))}
-            style={{ marginLeft: 8 }}
-          />
-        </label>
-      </div>
 
       <BarChart numbers={numbers} active={active} sorted={sorted} pivot={pivot} mode={mode} />
     </div>
