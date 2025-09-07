@@ -6,7 +6,7 @@ import { quickSort } from "../algorithms/quickSort";
 export default function QuickPage() {
   return (
     <div style={{ padding: 30 }}>
-      <CornerLogo size={80} />;
+      <CornerLogo size={80} />
       <h1 className="mx-auto w-fit text-5xl font-extrabold font-[system-ui] bg-gradient-to-b from-gray-800 to-gray-500 bg-clip-text text-transparent">
         Quick Sort
       </h1>
