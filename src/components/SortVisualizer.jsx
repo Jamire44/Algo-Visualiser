@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import BarChart from "./BarChart";
 import Controls from "./Controls";
 
-export default function SortVisualizer({ algoName, sortFunction, mode }) {
+export default function SortVisualizer({ algoName, sortFunction, mode, className }) {
   const [numbers, setNumbers] = useState(() =>
     Array.from({ length: 15 }, () => Math.floor(Math.random() * 40) + 5)
   );
@@ -37,13 +37,14 @@ export default function SortVisualizer({ algoName, sortFunction, mode }) {
   }
 
   return (
-    <div style={{ 
-    padding: 30,
-    minHeight: "100vh",
+
+    <div 
+    className={`flex flex-col items-center bg-white font-[system-ui] ${className}`}
+    style={{ 
+    marginBottom: "1rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "10px 0",
     background: "white",
     fontFamily: "system-ui, sans-serif",
     }}>
@@ -55,8 +56,12 @@ export default function SortVisualizer({ algoName, sortFunction, mode }) {
         onSpeedChange={ (val) => (speedRef.current = val)}
       />
 
+      <hr className="my-4 border-gray-200" />
 
       <BarChart numbers={numbers} active={active} sorted={sorted} pivot={pivot} mode={mode} />
+
+      <hr className="my-4 border-gray-200" />
+
     </div>
   );
 }

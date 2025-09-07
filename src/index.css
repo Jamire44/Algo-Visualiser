@@ -15,3 +15,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a:hover .default-title {
+  opacity: 0;
+}
+
+a:hover .preview {
+  opacity: 1;
+}

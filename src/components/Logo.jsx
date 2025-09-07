@@ -8,9 +8,9 @@ export default function Logo({ size = 120, style = {} }) {
         style={style} // ✅ now safe, comes from props
         preserveAspectRatio="xMidYMid meet"
       >
-        <defs>
+        {/* <defs> */}
           {/* Animated gradient */}
-          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          {/* <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#007aff">
               <animate
                 attributeName="stop-color"
@@ -27,8 +27,8 @@ export default function Logo({ size = 120, style = {} }) {
                 repeatCount="indefinite"
               />
             </stop>
-          </linearGradient>
-        </defs>
+          </linearGradient> */}
+        {/* </defs> */}
   
         <g
           transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"

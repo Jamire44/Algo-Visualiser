@@ -1,56 +1,56 @@
 import { Link } from "react-router-dom";
-
-// 🖼 match the case of your actual files!
-import bubbleImg from "../assets/bubble.png";
-import insertionImg from "../assets/insertion.png";
-import selectionImg from "../assets/selection.png";
-import quickImg from "../assets/quick.png";
-import Logo from "../components/Logo"; // ✅ this is your animated SVG component
+import { bubbleSort } from "../algorithms/bubbleSort";
+import { insertionSort } from "../algorithms/insertionSort";
+import { selectionSort } from "../algorithms/selectionSort";
+import { quickSort } from "../algorithms/quickSort";
+import Logo from "../components/Logo";
+import PreviewVisualizer from "../components/PreviewVisualizer";
+import AlgoCard from "../components/AlgoCard"; // ✅ new component
+import { useState } from "react";
 
 export default function Home() {
   const algorithms = [
-    { name: "Bubble Sort", path: "/bubble", img: bubbleImg },
-    { name: "Insertion Sort", path: "/insertion", img: insertionImg },
-    { name: "Selection Sort", path: "/selection", img: selectionImg },
-    { name: "Quick Sort", path: "/quick", img: quickImg },
+    { name: "Bubble Sort", path: "/bubble", sortFunction: bubbleSort, mode: "bubble" },
+    { name: "Insertion Sort", path: "/insertion", sortFunction: insertionSort, mode: "insertion" },
+    { name: "Selection Sort", path: "/selection", sortFunction: selectionSort, mode: "selection" },
+    { name: "Quick Sort", path: "/quick", sortFunction: quickSort, mode: "quick" },
   ];
 
   return (
     <div
       style={{
         minHeight: "100vh",
-        background: "black",
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        background: "white",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: 40,
       }}
     >
-          {/* Title */}
-          <h1
-            style={{
-              color: "white",
-              fontSize: "3rem",
-              fontWeight: "600",
-              marginBottom: 5,
-              textAlign: "center",
-              textShadow: "0 0 20px rgba(255,255,255,0.2)",
-            }}
-          >
-            Algorithm Visualiser
-          </h1>
-      <div
+      {/* Title */}
+      <h1
         style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: 5,
+          color: "black",
+          fontSize: "3rem",
+          fontWeight: "600",
+          marginBottom: 20,
+          textAlign: "center",
         }}
       >
-          <Logo style={{ width: 300, height: 300 }} />
-    </div>
+        Algorithm Visualiser
+      </h1>
 
+      <div
+        style={{
+          position: "fixed",
+          top: 20,
+          left: 20,
+          zIndex: 50,
+        }}
+      >
+        <Logo style={{ width: 80, height: 80 }} />
+      </div>
 
       {/* Grid */}
       <div
@@ -63,47 +63,7 @@ export default function Home() {
         }}
       >
         {algorithms.map((algo) => (
-          <Link
-            key={algo.name}
-            to={algo.path}
-            style={{
-              textDecoration: "none",
-              borderRadius: 20,
-              overflow: "hidden",
-              background: "white",
-              boxShadow: "0 0 20px rgba(255,255,255,0.1)",
-              transform: "translateY(0)",
-              transition: "transform 0.25s ease, box-shadow 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-6px)";
-              e.currentTarget.style.boxShadow =
-                "0 0 40px rgba(255,255,255,0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow =
-                "0 0 20px rgba(255,255,255,0.1)";
-            }}
-          >
-            <img
-              src={algo.img}
-              alt={algo.name}
-              style={{ width: "100%", height: 200, objectFit: "cover" }}
-            />
-            <div style={{ padding: 20, textAlign: "center" }}>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "1.25rem",
-                  fontWeight: "500",
-                  color: "#111",
-                }}
-              >
-                {algo.name}
-              </h2>
-            </div>
-          </Link>
+          <AlgoCard key={algo.name} {...algo} />
         ))}
       </div>
     </div>
