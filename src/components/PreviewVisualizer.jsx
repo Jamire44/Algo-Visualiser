@@ -4,7 +4,7 @@ export default function PreviewVisualizer({ sortFunction, mode, active }) {
   const [numbers, setNumbers] = useState([]);
 
   useEffect(() => {
-    if (!active) return; // 👈 only run when hovered
+    if (!active) return;
 
     function randomArray() {
       return Array.from({ length: 6 }, () => Math.floor(Math.random() * 30) + 5);

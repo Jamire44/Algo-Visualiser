@@ -7,7 +7,7 @@ export async function selectionSort(array, setArray, setActive, setSorted, setPi
     let minIndex = i;
 
     for (let j = i + 1; j < n; j++) {
-      setActive([minIndex, j]); // min vs candidate
+      setActive([minIndex, j]);
       await sleep(delay);
 
       if (arr[j] < arr[minIndex]) {
@@ -21,7 +21,7 @@ export async function selectionSort(array, setArray, setActive, setSorted, setPi
       await sleep(delay);
     }
 
-    sortedIndices.push(i); // lock
+    sortedIndices.push(i);
     setSorted([...sortedIndices]);
   }
 

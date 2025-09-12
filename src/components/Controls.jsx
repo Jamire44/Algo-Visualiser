@@ -16,7 +16,7 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                 onClick={onShuffle} 
                 disabled={isSorting} 
                 style={{
-                    background: "rgb(57, 57, 57)",          // iOS blue
+                    background: "rgb(57, 57, 57)",
                     color: "white",
                     border: "none",
                     padding: "10px 30px",
@@ -27,7 +27,7 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                     transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "black"; // darker blue on hover
+                    e.currentTarget.style.background = "black"; 
                 }}
                 onMouseLeave={(e) => {
                     e.currentTarget.style.background = "rgb(57, 57, 57)";
@@ -39,7 +39,7 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                 onClick={onRun}
                 disabled={isSorting}
                 style={{
-                    background: "rgb(57, 57, 57)",          // iOS blue
+                    background: "rgb(57, 57, 57)",          
                     color: "white",
                     border: "none",
                     padding: "10px 30px",
@@ -50,7 +50,7 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                     transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "black"; // darker blue on hover
+                    e.currentTarget.style.background = "black";
                 }}
                 onMouseLeave={(e) => {
                     e.currentTarget.style.background = "rgb(57, 57, 57)";
@@ -74,7 +74,7 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
             <Link to="/">
                 <button
                     style={{
-                        background: "rgb(57, 57, 57)",          // iOS blue
+                        background: "rgb(57, 57, 57)",          
                         color: "white",
                         border: "none",
                         padding: "10px 30px",
@@ -85,7 +85,7 @@ export default function Controls({ onShuffle, onRun, isSorting, algoName, onSpee
                         transition: "all 0.2s ease",
                     }}
                     onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "black"; // darker blue on hover
+                        e.currentTarget.style.background = "black";
                     }}
                     onMouseLeave={(e) => {
                         e.currentTarget.style.background = "rgb(57, 57, 57)";

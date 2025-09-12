@@ -52,7 +52,6 @@ export default function Home() {
         <Logo style={{ width: 80, height: 80 }} />
       </div>
 
-      {/* Grid */}
       <div
         style={{
           display: "grid",

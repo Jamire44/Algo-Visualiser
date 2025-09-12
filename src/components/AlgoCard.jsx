@@ -23,7 +23,6 @@ export default function AlgoCard({ name, path, sortFunction, mode }) {
       onMouseLeave={() => setHovered(false)}
     >
       <div style={{ height: 200, position: "relative" }}>
-        {/* Default title */}
         <div
           style={{
             position: "absolute",
@@ -41,7 +40,6 @@ export default function AlgoCard({ name, path, sortFunction, mode }) {
           {name}
         </div>
 
-        {/* Preview visualiser */}
         <div
           style={{
             position: "absolute",

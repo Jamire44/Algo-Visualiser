@@ -4,11 +4,11 @@ export async function quickSort(array, setArray, setActive, setSorted, setPivot,
   
     async function partition(low, high) {
       let pivot = arr[high];
-      setPivot(high); // 🟡 pivot
+      setPivot(high);
       let i = low - 1;
   
       for (let j = low; j < high; j++) {
-        setActive([j]); // 🔴 vs pivot
+        setActive([j]);
         await sleep(delay);
   
         if (arr[j] < pivot) {
@@ -30,7 +30,7 @@ export async function quickSort(array, setArray, setActive, setSorted, setPivot,
       if (low < high) {
         let pi = await partition(low, high);
   
-        sortedIndices.push(pi); // ✅ lock pivot
+        sortedIndices.push(pi);
         setSorted([...sortedIndices]);
   
         await quick(low, pi - 1);

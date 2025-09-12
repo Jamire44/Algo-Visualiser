@@ -5,31 +5,10 @@ export default function Logo({ size = 120, style = {} }) {
         viewBox="0 0 1024 1024"
         width={size}
         height={size}
-        style={style} // ✅ now safe, comes from props
+        style={style}
         preserveAspectRatio="xMidYMid meet"
       >
-        {/* <defs> */}
-          {/* Animated gradient */}
-          {/* <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#007aff">
-              <animate
-                attributeName="stop-color"
-                values="#007aff; #34c759; #ff2d55; #ffcc00; #007aff"
-                dur="10s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="100%" stopColor="#ff2d55">
-              <animate
-                attributeName="stop-color"
-                values="#ff2d55; #ffcc00; #34c759; #007aff; #ff2d55"
-                dur="10s"
-                repeatCount="indefinite"
-              />
-            </stop>
-          </linearGradient> */}
-        {/* </defs> */}
-  
+        
         <g
           transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
           fill="url(#logoGradient)" // ✅ animated gradient applied

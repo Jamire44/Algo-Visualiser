@@ -13,26 +13,26 @@ export default function BarChart({ numbers, active = [], sorted = [], pivot = nu
         }}
       >
         {numbers.map((num, i) => {
-          let color = "#7ec8ff"; // default blue
+          let color = "#7ec8ff";
   
           if (sorted.includes(i)) {
-            color = "lightgreen"; // ✅ sorted always green
+            color = "lightgreen";
           } else {
             if (mode === "bubble") {
-              if (active[0] === i) color = "tomato"; // comparing first
-              else if (active[1] === i) color = "gold"; // comparing second
+              if (active[0] === i) color = "tomato";
+              else if (active[1] === i) color = "gold";
             }
             if (mode === "insertion") {
-              if (active[0] === i) color = "gold"; // key
-              else if (active[1] === i) color = "tomato"; // element being shifted
+              if (active[0] === i) color = "gold";
+              else if (active[1] === i) color = "tomato";
             }
             if (mode === "selection") {
-              if (active[0] === i) color = "purple"; // current min
-              else if (active[1] === i) color = "tomato"; // candidate
+              if (active[0] === i) color = "purple";
+              else if (active[1] === i) color = "tomato";
             }
             if (mode === "quick") {
-              if (pivot === i) color = "gold"; // pivot
-              else if (active[0] === i) color = "tomato"; // compared element
+              if (pivot === i) color = "gold";
+              else if (active[0] === i) color = "tomato";
             }
           }
   

@@ -5,7 +5,7 @@ export async function bubbleSort(array, setArray, setActive, setSorted, setPivot
 
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
-      setActive([j, j + 1]); // highlight
+      setActive([j, j + 1]);
       await sleep(delay);
 
       if (arr[j] > arr[j + 1]) {
